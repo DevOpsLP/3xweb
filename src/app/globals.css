@@ -2,26 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Navigation button  */
+.link-button {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  transition: letter-spacing 280ms ease-in-out;
+}
+
+.link-button:hover,
+.link-button:active {
+  letter-spacing: 5px;
+}
+
+.link-button:after,
+.link-button:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+  background-color: currentColor; /* Use current text color */
+  transition: all 350ms ease-in-out;
+  backface-visibility: hidden;
+}
+
+.link-button:before {
+  top: 0;
+  bottom: auto;
+}
+
+.link-button:hover:before,
+.link-button:hover:after {
+  width: 70%;
+  left: 15%;
+  background-color: currentColor; /* Use current text color */
+}
+
+/* Button effect */
+.btn-1 svg {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.btn-1 rect {
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 422, 0;
+  transition: all 0.35s linear;
+}
+
+.btn-1:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+/* Typewriter effect */
+
+/* Cursor */
+.cursor{
+  position: relative;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 30px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);    
+}
+/* Animation */
+.typewriter-animation {
+animation: 
+  typewriter 3s steps(50) 1s 1 normal both, 
+  blinkingCursor 700ms steps(50) infinite normal;
+}
+@keyframes typewriter {
+from { width: 0; }
+to { width: 80%; }
+}
+@keyframes blinkingCursor{
+from { border-right-color: rgba(255,255,255,.75); }
+to { border-right-color: transparent; }
+}
+
+
+.parallax {
+  /* The image used */
+  background-image: url("/images/hero.jpg");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
