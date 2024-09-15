@@ -7,18 +7,18 @@ const Footer = () => {
       <div className="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center">
         {/* Left Side: Logo and Rights */}
         <div className="flex flex-col items-center mb-4 md:mb-0 ">
-          <div className="text-2xl font-bold">
+          <div >
             <Link href="/">
             <Image
-                src="/images/3xlogo.png" // replace with your image path
-                alt="Hero Image"
-                width={100}
-                height={100}
-                priority // This ensures the image loads quickly
+                src="/images/x3.svg" // replace with your image path
+                alt="3X logo"
+                width={150}
+                height={150}
+                className="-mt-12" // This ensures the image loads quickly
             />
             </Link>
           </div>
-          <p className="text-sm mt-12 border-t-2 pt-6">
+          <p className="text-sm  border-t-2 pt-6">
             &copy; {new Date().getFullYear()} 3X Group. All rights reserved.
           </p>
         </div>
